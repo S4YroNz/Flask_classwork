@@ -46,3 +46,23 @@ body {
     display:block;
     margin:auto;
 }
+#list_prof_h2 {
+    text-align:left;
+    font-weight: bold;
+    padding-left: 5%;
+}
+#list_prof_ol{
+    padding-left: 5%;
+}
+
+#list_prof_ul{
+    padding-left: 5%;
+}
+
+li{
+    color:black;
+    font-family: "Nunito", sans-serif;
+    font-family: "Raleway", sans-serif;
+
+}
+

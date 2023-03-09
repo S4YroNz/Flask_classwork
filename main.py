@@ -16,6 +16,27 @@ def training(prof):
     return render_template('training.html', prof=prof)
 
 
+@app.route('/list_prof/<list_type>')
+def list_prof(list_type):
+    list_prof = ['инженер-исследователь',
+                 'пилот',
+                 'строитель',
+                 'экзобиолог',
+                 'врач',
+                 'инженер по терраформированию',
+                 'климатолог',
+                 'специалист по радиционой защите',
+                 'астрогеолог',
+                 'гляциолог',
+                 'инженер жизнеобеспечения',
+                 'метеоролог',
+                 'оператор марсохода',
+                 'киберинженер',
+                 'штурман',
+                 'пилот дронов']
+    return render_template('list_prof.html', list_type=list_type, list_prof=list_prof)
+
+
 @app.route('/promotion')
 def promotion():
     frases = ['Человечество вырастает из детства.',
