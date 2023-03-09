@@ -4,14 +4,14 @@ from random import choice
 app = Flask(__name__)
 
 
+
+
+
 @app.route('/')
-def main():
-    return '<b>Миссия Колонизация Марса</b>'
-
-
 @app.route('/index')
 def index():
-    return '<b>И на Марсе будут яблони цвести!</b>'
+    title = "Миссия"
+    return render_template('base.html', title=title)
 
 
 @app.route('/promotion')
