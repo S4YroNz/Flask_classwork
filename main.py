@@ -1,19 +1,55 @@
 from flask import *
 from random import choice
+from loginform import LoginForm
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 @app.route('/')
 @app.route('/index')
 def index():
     title = "Миссия"
     return render_template('index.html', title=title)
-
+@app.route('/success')
+def success():
+    return render_template('success.html')
 
 @app.route('/training/<prof>')
 def training(prof):
     return render_template('training.html', prof=prof)
+
+
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    params = {'title': 'Анкета',
+              'surname': 'Wathy',
+              'name': 'Mark',
+              'education': 'выще среднего',
+              'profession': 'штурман марсохода',
+              'sex': 'male',
+              'motivation': 'Всегда мечтал застрять на Марсе!',
+              'ready': True}
+
+    return render_template('answer.html', **params)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('login.html', form=form)
+@app.route('/galery')
+def galery():
+
+    return render_template('galery.html')
+
+
+@app.route('/distribution')
+def distribution():
+    astronauts = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни', 'Венката Капур', 'Тедди Сандерс', 'Шон Бин']
+    return render_template('distribution.html',astronauts=astronauts)
 
 
 @app.route('/list_prof/<list_type>')

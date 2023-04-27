@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="div-login">
+    <img src="../static/images/MARS-2-7.png">
+    <nobr>
+        <h2 id="h2-login">Аварийный доступ</h2>
+
+        <form method="post" action="" novalidate>
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                {{form.astronaut_ID.label}}
+                {{form.astronaut_ID(type="text", class="form-control", id="astronautID")}}
+                {% for error in form.astronaut_ID.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-3">
+                {{form.astronaut_password.label}}
+                {{form.astronaut_password(type="password", class="form-control", id="astronautPassword")}}
+                {% for error in form.astronaut_password.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-3">
+                {{form.captain_ID.label}}
+                {{form.captain_ID(type="text", class="form-control", id="captainID")}}
+                {% for error in form.captain_ID.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="mb-3">
+                {{form.captain_password.label}}
+                {{form.captain_password(type="password", class="form-control", id="captainPassword")}}
+                {% for error in form.captain_password.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </div>
+            {{form.submit(type="submit", class="btn btn-primary")}}
+
+        </form>
+
+
+</div>
+{% endblock %}
